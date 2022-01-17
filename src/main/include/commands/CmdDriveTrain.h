@@ -1,6 +1,7 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
+/*-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=*/
+/*                       Blue Crew Robotics #6153                             */
+/*                           Rapid React 2022                                 */
+/*-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=*/
 
 #pragma once
 
@@ -19,7 +20,7 @@
 class CmdDriveTrain
     : public frc2::CommandHelper<frc2::CommandBase, CmdDriveTrain> {
  public:
-  CmdDriveTrain(SubDriveTrain* driveTrain);
+  CmdDriveTrain(SubDriveTrain* driveTrain, double speed, double rotation);
 
   void Initialize() override;
 

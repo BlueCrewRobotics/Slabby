@@ -35,6 +35,8 @@ class RobotContainer {
   frc2::Command* GetAutonomousCommand();
   void ConfigureDrive();
   void ConfigureCompressor();
+  double GetSpeed();
+  double GetRotation();
 
  private:
   
@@ -46,10 +48,6 @@ class RobotContainer {
   ExampleSubsystem m_subsystem;
   ExampleCommand m_autonomousCommand;
 
-
-  // Setup driver controller
-  //frc::Joystick driverController{DRIVER_CONTROLLER};
-  //frc::Joystick auxController{AUX_CONTROLLER};
 
   // Setup driver controller
   frc::Joystick *driverController = new frc::Joystick(DRIVER_CONTROLLER);

@@ -12,7 +12,7 @@ RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
   ConfigureButtonBindings();
 
   // Set the default command for the Drive Train
-  m_subDriveTrain.SetDefaultCommand(CmdDriveTrain(&m_subDriveTrain));
+  m_subDriveTrain.SetDefaultCommand(CmdDriveTrain(&m_subDriveTrain,GetSpeed(),GetRotation()));
 
 
 }
@@ -40,4 +40,25 @@ void RobotContainer::ConfigureDrive() {
 
 void RobotContainer::ConfigureCompressor() {
   m_subPneumatics.ConfigureCompressor();
+}
+
+// Gets the speed to pass into the default command for the drive train
+double RobotContainer::GetSpeed() {
+  double speed = 0;
+  if(driverController->GetRawAxis(AXIS_L_TRIG) > 0)
+  {
+    speed = driverController->GetRawAxis(AXIS_L_TRIG);
+  }
+  else
+  {
+    speed = driverController->GetRawAxis(AXIS_R_TRIG);
+  }
+  return speed;
+}
+
+// Gets the rotation to pass into the default command for the drive train
+double RobotContainer::GetRotation() {
+  double rotation = 0;
+  rotation = driverController->GetRawAxis(AXIS_LX);
+  return rotation;
 }

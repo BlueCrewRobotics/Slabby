@@ -1,10 +1,11 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
+/*-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=*/
+/*                       Blue Crew Robotics #6153                             */
+/*                           Rapid React 2022                                 */
+/*-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=*/
 
 #include "commands/CmdDriveTrain.h"
 
-CmdDriveTrain::CmdDriveTrain(SubDriveTrain* driveTrain) : m_driveTrain{driveTrain}{
+CmdDriveTrain::CmdDriveTrain(SubDriveTrain* driveTrain, double speed, double rotation) : m_driveTrain{driveTrain}, m_speed{speed}, m_rotation{rotation} {
   // Use addRequirements() here to declare subsystem dependencies.
   AddRequirements(driveTrain);
 }
