@@ -2,19 +2,19 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-#include "commands/CmdDriveTrain.h"
+#include "commands/CmdDriveWithController.h"
 
-CmdDriveTrain::CmdDriveTrain(SubDriveTrain* driveTrain, frc::Joystick *driverController ) : m_driveTrain{driveTrain}, m_driverController{driverController} {
+CmdDriveWithController::CmdDriveWithController(SubDriveTrain* driveTrain, frc::Joystick *driverController ) : m_driveTrain{driveTrain}, m_driverController{driverController} {
   // Use addRequirements() here to declare subsystem dependencies.
   AddRequirements(driveTrain);
 
 }
 
 // Called when the command is initially scheduled.
-void CmdDriveTrain::Initialize() {}
+void CmdDriveWithController::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void CmdDriveTrain::Execute() {
+void CmdDriveWithController::Execute() {
 
  double speed;
   if(m_driverController->GetRawAxis(AXIS_L_TRIG) > 0)
@@ -34,9 +34,9 @@ void CmdDriveTrain::Execute() {
 }
 
 // Called once the command ends or is interrupted.
-void CmdDriveTrain::End(bool interrupted) {}
+void CmdDriveWithController::End(bool interrupted) {}
 
 // Returns true when the command should end.
-bool CmdDriveTrain::IsFinished() {
+bool CmdDriveWithController::IsFinished() {
   return false;
 }

@@ -12,7 +12,7 @@ RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
   ConfigureButtonBindings();
 
   // Set the default command for the Drive Train
-  m_subDriveTrain.SetDefaultCommand(CmdDriveTrain(&m_subDriveTrain, driverController));
+  m_subDriveTrain.SetDefaultCommand(CmdDriveWithController(&m_subDriveTrain, driverController));
   
 
 }

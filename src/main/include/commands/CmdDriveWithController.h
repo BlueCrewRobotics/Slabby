@@ -18,10 +18,10 @@
  * directly; this is crucially important, or else the decorator functions in
  * Command will *not* work!
  */
-class CmdDriveTrain
-    : public frc2::CommandHelper<frc2::CommandBase, CmdDriveTrain> {
+class CmdDriveWithController
+    : public frc2::CommandHelper<frc2::CommandBase, CmdDriveWithController> {
  public:
-  CmdDriveTrain(SubDriveTrain* driveTrain, frc::Joystick *driverController );
+  CmdDriveWithController(SubDriveTrain* driveTrain, frc::Joystick *driverController );
 
   void Initialize() override;
 

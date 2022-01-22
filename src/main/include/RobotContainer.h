@@ -12,7 +12,7 @@
 
 #include "Constants.h"
 #include "commands/ExampleCommand.h"
-#include "commands/CmdDriveTrain.h"
+#include "commands/CmdDriveWithController.h"
 #include "commands/CmdShiftGear.h"
 
 
