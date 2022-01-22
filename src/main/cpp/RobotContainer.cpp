@@ -12,8 +12,8 @@ RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
   ConfigureButtonBindings();
 
   // Set the default command for the Drive Train
-  m_subDriveTrain.SetDefaultCommand(CmdDriveTrain(&m_subDriveTrain,GetSpeed(),GetRotation()));
-
+  m_subDriveTrain.SetDefaultCommand(CmdDriveTrain(&m_subDriveTrain,m_speed,m_rotation));
+  
 
 }
 
@@ -21,7 +21,7 @@ void RobotContainer::ConfigureButtonBindings() {
   
   // Configure your button bindings here
   driverController_button_rbump->WhenPressed(new CmdShiftGear(&m_subPneumatics));
-  
+    
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
@@ -44,21 +44,28 @@ void RobotContainer::ConfigureCompressor() {
 
 // Gets the speed to pass into the default command for the drive train
 double RobotContainer::GetSpeed() {
-  double speed = 0;
+  
   if(driverController->GetRawAxis(AXIS_L_TRIG) > 0)
   {
-    speed = driverController->GetRawAxis(AXIS_L_TRIG);
+    m_speed = driverController->GetRawAxis(AXIS_L_TRIG);
   }
   else
   {
-    speed = driverController->GetRawAxis(AXIS_R_TRIG);
+    m_speed = driverController->GetRawAxis(AXIS_R_TRIG);
   }
-  return speed;
+  //wpi::outs() << "Testing!\n";
+  //wpi::outs() << "Testing again!\n";
+  //wpi::outs() << m_speed << " \n";
+  return m_speed;
 }
 
 // Gets the rotation to pass into the default command for the drive train
 double RobotContainer::GetRotation() {
-  double rotation = 0;
-  rotation = driverController->GetRawAxis(AXIS_LX);
-  return rotation;
+  
+  m_rotation = driverController->GetRawAxis(AXIS_LX);
+  return m_rotation;
+}
+
+void RobotContainer::ConfigureShooter() {
+  m_subShooter.Configure();
 }

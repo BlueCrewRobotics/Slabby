@@ -12,6 +12,8 @@ void Robot::RobotInit() {
 
   m_robotContainer.ConfigureDrive();
   m_robotContainer.ConfigureCompressor();
+  m_robotContainer.ConfigureShooter();
+
 }
 
 /**
@@ -58,12 +60,17 @@ void Robot::TeleopInit() {
     m_autonomousCommand->Cancel();
     m_autonomousCommand = nullptr;
   }
+
+
 }
 
 /**
  * This function is called periodically during operator control.
  */
-void Robot::TeleopPeriodic() {}
+void Robot::TeleopPeriodic() {
+  m_robotContainer.GetSpeed();
+  m_robotContainer.GetRotation();
+}
 
 /**
  * This function is called periodically during test mode.

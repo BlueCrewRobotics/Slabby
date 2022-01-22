@@ -146,7 +146,7 @@ void SubDriveTrain::Drive(double speed, double rotation) {
   // Drive
 
   driveTrain->SetDeadband(0.02);
-  driveTrain->ArcadeDrive(speed, rotation, true);
+  driveTrain->ArcadeDrive(speed, rotation, false);
 }
 // Resets the drive encoders to 0
 void SubDriveTrain::ResetEncoders() {

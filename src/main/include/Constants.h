@@ -22,9 +22,9 @@ constexpr int MOTOR_LEFT_FOLLOWER = 3;
 constexpr int MOTOR_RIGHT_FOLLOWER = 4;
 
 // Continuous current limit for Talons in amps
-constexpr int CONTINUOUS_CURRENT_LIMIT = 50;
+constexpr int CONTINUOUS_CURRENT_LIMIT = 20;
 // Peak current limit for the Talons in amps
-constexpr int PEAK_CURRENT_LIMIT = 100;
+constexpr int PEAK_CURRENT_LIMIT = 50;
 // Peak current duration for Talons in ms
 constexpr int DURATION_CURRENT_LIMIT = 50;
 
@@ -93,3 +93,8 @@ constexpr int PCM_SHIFTER = 9;
 
 // Solenoid Mappings for Shifter PCM
 constexpr int PCM_GEARSHIFT = 0;  // Drive train gear shifter
+
+// Shooter Configuration
+constexpr int SHOOTER_TOP_ADDR = 13;
+constexpr int SHOOTER_BTM_ADDR = 14;
+
