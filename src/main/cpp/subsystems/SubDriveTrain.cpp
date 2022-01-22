@@ -41,6 +41,7 @@ void SubDriveTrain::Configure() {
 
   leftDriveMotor->ptr_talonSRX->ClearStickyFaults(30);
   rightDriveMotor->ptr_talonSRX->ClearStickyFaults(30);
+  rightDriveMotor->ptr_talonSRX->SetInverted(InvertType::InvertMotorOutput);
 
   // Setup followers
   leftFollowMotor->ptr_VictorSPX->Follow(*leftDriveMotor->ptr_talonSRX);

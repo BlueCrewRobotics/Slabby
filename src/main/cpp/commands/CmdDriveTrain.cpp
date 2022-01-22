@@ -4,11 +4,10 @@
 
 #include "commands/CmdDriveTrain.h"
 
-CmdDriveTrain::CmdDriveTrain(SubDriveTrain* driveTrain, double speed, double rotation) : m_driveTrain{driveTrain} {
+CmdDriveTrain::CmdDriveTrain(SubDriveTrain* driveTrain, frc::Joystick *driverController ) : m_driveTrain{driveTrain}, m_driverController{driverController} {
   // Use addRequirements() here to declare subsystem dependencies.
   AddRequirements(driveTrain);
-  m_speed = speed;
-  m_rotation = rotation;
+
 }
 
 // Called when the command is initially scheduled.
@@ -16,7 +15,22 @@ void CmdDriveTrain::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void CmdDriveTrain::Execute() {
-  m_driveTrain->Drive(m_speed,m_rotation);
+
+ double speed;
+  if(m_driverController->GetRawAxis(AXIS_L_TRIG) > 0)
+  {
+    speed = -1*m_driverController->GetRawAxis(AXIS_L_TRIG);
+  }
+  else
+  {
+    speed = m_driverController->GetRawAxis(AXIS_R_TRIG);
+  }
+
+  double rotation;
+  rotation = m_driverController->GetRawAxis(AXIS_LX);
+
+  m_driveTrain->Drive(speed, rotation);
+
 }
 
 // Called once the command ends or is interrupted.

@@ -47,9 +47,6 @@ class RobotContainer {
   SubPneumatics m_subPneumatics;
   SubShooter m_subShooter;
   
-
-  double m_speed;
-  double m_rotation;
   
   // The robot's subsystems and commands are defined here...
   ExampleSubsystem m_subsystem;
@@ -58,6 +55,7 @@ class RobotContainer {
 
   // Setup driver controller
   frc::Joystick *driverController = new frc::Joystick(DRIVER_CONTROLLER);
+
   // LEFT TRIGGER // Drive Backwards use driverController->GetRawAxis(AXIS_L_TRIG)
   // RIGHT TRIGGER // Drive Forwards use driverController->GetRawAxis(AXIS_R_TRIG)
   // LEFT STICK LEFT // Turn Left driverController->GetRawAxis(AXIS_LX)

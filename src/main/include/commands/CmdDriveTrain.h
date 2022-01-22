@@ -9,6 +9,7 @@
 #include <frc2/command/CommandHelper.h>
 
 #include "subsystems/SubDriveTrain.h"
+#include <frc/Joystick.h>
 
 /**
  * An example command.
@@ -20,7 +21,7 @@
 class CmdDriveTrain
     : public frc2::CommandHelper<frc2::CommandBase, CmdDriveTrain> {
  public:
-  CmdDriveTrain(SubDriveTrain* driveTrain, double speed, double rotation);
+  CmdDriveTrain(SubDriveTrain* driveTrain, frc::Joystick *driverController );
 
   void Initialize() override;
 
@@ -32,6 +33,6 @@ class CmdDriveTrain
 
  private:
   SubDriveTrain* m_driveTrain;
-  double m_speed = 0;
-  double m_rotation = 0;
+  frc::Joystick* m_driverController;
+
 };
