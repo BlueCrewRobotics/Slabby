@@ -10,12 +10,13 @@ SubShooter::SubShooter() = default;
 // This method will be called once per scheduler run
 void SubShooter::Periodic() {
     SpinUpWheels(frc::SmartDashboard::GetNumber("Shooter/topSpeed", 0),frc::SmartDashboard::GetNumber("Shooter/botSpeed", 0));
-
+    SetShooterAngle(frc::SmartDashboard::GetNumber("Shooter/angle", 0));
 }
 
 void SubShooter::Configure() {
     frc::SmartDashboard::PutNumber("Shooter/topSpeed",0.0);
     frc::SmartDashboard::PutNumber("Shooter/botSpeed",0.0);
+    frc::SmartDashboard::PutNumber("Shooter/angle",0.0);
 
     topShooterMotor->SetInverted(true);
 //    topShooterMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
@@ -68,4 +69,9 @@ void SubShooter::SpinUpWheels(double topSpeed, double bottomSpeed){
   topShooterMotor->Set(ControlMode::PercentOutput, topSpeed);
   bottomShooterMotor->Set(ControlMode::PercentOutput, bottomSpeed);
 
+}
+
+void SubShooter::SetShooterAngle(double angle) {
+    angleServo->SetBounds(2.0,1.55,1.5,1.45,1.0);
+    angleServo->SetPosition(angle);
 }

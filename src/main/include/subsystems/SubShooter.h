@@ -7,6 +7,7 @@
 #include <frc2/command/SubsystemBase.h>
 #include "BC_TalonSRX.h"
 #include <frc/smartdashboard/SmartDashboard.h>
+#include <frc/Servo.h>
 
 class SubShooter : public frc2::SubsystemBase {
  public:
@@ -18,11 +19,14 @@ class SubShooter : public frc2::SubsystemBase {
   void Periodic() override;
   void Configure();
   void SpinUpWheels(double topSpeed, double bottomSpeed);
+  void SetShooterAngle(double angle);
 
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
   TalonSRX *topShooterMotor = new TalonSRX(SHOOTER_TOP_ADDR);
   TalonSRX *bottomShooterMotor = new TalonSRX(SHOOTER_BTM_ADDR);
+
+  frc::Servo *angleServo = new frc::Servo(0);
 
 };
